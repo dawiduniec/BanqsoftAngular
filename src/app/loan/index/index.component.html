@@ -1,0 +1,76 @@
+<style>
+  .form-group {
+    margin-bottom: 1rem;
+  }
+</style>
+
+<div class="container mt-2" *ngIf="!showLoanDetails">
+  <div class="row justify-content-md-center">
+    <div class="col-md-4">
+      <form [formGroup]="loanForm" (ngSubmit)="submit()">
+        <div class="form-group">
+          <label for="amount">Loan amount</label>
+          <input
+            type="number"
+            class="form-control"
+            id="amount"
+            placeholder="Amount"
+            formControlName="amount"
+          />
+          <div
+            *ngIf="formControls.amount.touched && formControls.amount.invalid"
+            class="alert alert-danger"
+          >
+            <div>Amount is required and have to be positive number.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="years">Number of years</label>
+          <input
+            type="number"
+            class="form-control"
+            id="numberOfYears"
+            placeholder="Years"
+            formControlName="numberOfYears"
+          />
+          <div
+            *ngIf="
+              formControls.numberOfYears.touched &&
+              formControls.numberOfYears.invalid
+            "
+            class="alert alert-danger"
+          >
+            <div>Years are required and have to be positive number.</div>
+          </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary btn-success"
+          [disabled]="!loanForm.valid"
+        >
+          Calculate
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-2" *ngIf="showLoanDetails">
+  <div class="row justify-content-md-center">
+    <div class="text-center">
+      <button
+        (click)="changeCalculation()"
+        type="button"
+        class="btn btn-outline-primary"
+      >
+        Change calculation
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-md-center mt-2">
+    <div class="col-md-5">
+      <app-housing [loan]="loan" [monthlyLoanRates]="monthlyLoanRates">
+      </app-housing>
+    </div>
+  </div>
+</div>

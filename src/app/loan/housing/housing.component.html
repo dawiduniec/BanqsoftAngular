@@ -1,0 +1,29 @@
+<div class="text-center">
+  <div>Monthly payments</div>
+  <h3>{{ loan?.monthlyRate | currency: "USD" }}</h3>
+  <div>Interest rate per year</div>
+  <h3>{{ loan?.interestRate }}%</h3>
+</div>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Payment</th>
+      <th scope="col">Principal</th>
+      <th scope="col">Interest</th>
+      <th scope="col">Total Interest</th>
+      <th scope="col">Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let loanRate of monthlyLoanRates; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ loanRate.paymentAmount | currency: "USD" }}</td>
+      <td>{{ loanRate.principal | currency: "USD" }}</td>
+      <td>{{ loanRate.interest | currency: "USD" }}</td>
+      <td>{{ loanRate.totalInterest | currency: "USD" }}</td>
+      <td>{{ loanRate.balance | currency: "USD" }}</td>
+    </tr>
+  </tbody>
+</table>

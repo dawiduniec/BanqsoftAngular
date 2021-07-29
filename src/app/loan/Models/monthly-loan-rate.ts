@@ -4,4 +4,5 @@ export interface MonthlyLoanRate {
     totalInterest: number;
     balance: number;
     paymentAmount: number;
+    index: number;
 }

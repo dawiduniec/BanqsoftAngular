@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { LoanRoutingModule } from './loan-routing.module';
 import { IndexComponent } from './index/index.component';
 import { HousingComponent } from './housing/housing.component';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -16,7 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     LoanRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ]
 })
 export class LoanModule { }

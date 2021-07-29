@@ -18,7 +18,7 @@ export class IndexComponent implements OnInit {
   });
 
   public loan?: Loan;
-  public monthlyLoanRates?: MonthlyLoanRate[];
+  public monthlyLoanRates: MonthlyLoanRate[] = [];
 
   public showLoanDetails: boolean = false;
 

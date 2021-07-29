@@ -17,8 +17,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let loanRate of monthlyLoanRates; let i = index">
-      <th scope="row">{{ i + 1 }}</th>
+    <tr *ngFor="let loanRate of monthlyLoanRates | paginate: { itemsPerPage: itemsPerPage, currentPage: page }; let i = index">
+      <th scope="row">{{  loanRate.index  }}</th>
       <td>{{ loanRate.paymentAmount | currency: "USD" }}</td>
       <td>{{ loanRate.principal | currency: "USD" }}</td>
       <td>{{ loanRate.interest | currency: "USD" }}</td>
@@ -27,3 +27,5 @@
     </tr>
   </tbody>
 </table>
+
+<pagination-controls (pageChange)="page = $event"></pagination-controls>

@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { LoanModule } from './loan/loan.module';
 
@@ -16,8 +17,10 @@ import { LoanModule } from './loan/loan.module';
     BrowserModule,
     AppRoutingModule,
     LoanModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
+  exports: [NgxPaginationModule],
   providers: [],
   bootstrap: [AppComponent]
 })

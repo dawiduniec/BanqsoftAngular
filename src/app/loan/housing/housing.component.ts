@@ -12,9 +12,11 @@ import { MonthlyLoanRate } from '../Models/monthly-loan-rate';
 export class HousingComponent implements OnInit {
   @Input()
   public loan?: Loan;
+  public itemsPerPage: number = 10;
+  public page: number = 1;
 
   @Input()
-  public monthlyLoanRates?: MonthlyLoanRate[];
+  public monthlyLoanRates: MonthlyLoanRate[] = [];
 
   constructor() { }
 
